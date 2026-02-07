@@ -1,70 +1,116 @@
 ```
-╭──────────────────────────────────────────────────────────╮
-│  ╔═╗╔═╗╔═╗╔╦╗╔═╗╔╦╗╦═╗╦ ╦  ╦ ╦╔═╗╔═╗╦╔═╔═╗            │
-│  ║ ╦║╣ ║ ║║║║║╣  ║ ╠╦╝╚╦╝  ╠═╣╠═╣║  ╠╩╗╚═╗            │
-│  ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩ ╩╚═ ╩   ╩ ╩╩ ╩╚═╝╩ ╩╚═╝            │
-╰──────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────╮
+│  ∇ · F = ∂Fₓ/∂x + ∂Fᵧ/∂y + ∂Fᵤ/∂z                            │
+│                                                                 │
+│  ╔═╗╔═╗╔═╗╔╦╗╔═╗╔╦╗╦═╗╦ ╦  ╦ ╦╔═╗╔═╗╦╔═╔═╗                    │
+│  ║ ╦║╣ ║ ║║║║║╣  ║ ╠╦╝╚╦╝  ╠═╣╠═╣║  ╠╩╗╚═╗                    │
+│  ╚═╝╚═╝╚═╝╩ ╩╚═╝ ╩ ╩╚═ ╩   ╩ ╩╩ ╩╚═╝╩ ╩╚═╝                    │
+╰────────────────────────────────────────────────────────────────╯
 ```
 
 ## Hi, I'm John
 
-**3D Technical Artist & Math Enthusiast**
+**Computational Geometry & Algorithmic 3D Tool Developer**
 
-I build tools where mathematical specification IS the execution.
+*Camera-centric sketch-based modeling | Conformal geometry | Spectral methods*
+
+I build tools where **mathematical specification IS the execution**.
 The algebra IS the geometry. The tree IS the program.
 
 ---
 
-### Currently Working On
+### The Approach
+
+> **Camera-Centric Sketch-Based 3D Modeling**
+>
+> 2D input → Camera projection → Geometric inference → Resolution-independent output
+
+Traditional modeling manipulates vertices directly. My systems interpret **2D strokes as constraints on 3D form**—projecting through the camera plane to infer depth, curvature, and surface.
+
+```
+Traditional:    Sketch → Trace → Extrude → Edit vertices
+This System:    Sketch → Project → Solve → Generate
+```
+
+---
+
+### Mathematical Foundations
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│                                                                │
+│  ∇ Gradient    ∇· Divergence    ∇× Curl    Δ Laplacian       │
+│                                                                │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐           │
+│  │   AFFINE    │◄─│  CONFORMAL  │─►│  SPECTRAL   │           │
+│  │   GL(4,ℝ)   │  │   PSL(2,ℂ)  │  │   L²(ℝ³)    │           │
+│  └─────────────┘  └─────────────┘  └─────────────┘           │
+│                                                                │
+│  Möbius:  f(z) = (az+b)/(cz+d)   Circles → Circles           │
+│  Fourier: f̂(k) = ∫ f(x) e^(-2πik·x) dx                       │
+│  Curvature: κ = dθ/ds                                         │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Active Research
 
 | Project | Description |
 |---------|-------------|
-| [**Geometric Synthesis Framework**](https://github.com/JohnnyNeoman/Math/tree/master/maya-math) | Mathematical compiler for 3D content creation |
-| **Skeletal Singleton Tree** | Functional L-system separating state from mutation |
-| **Neural Sketch Fields** | AI-assisted surface prediction from boundary curves |
+| [**Geometric Synthesis Framework**](https://github.com/JohnnyNeoman/Math/tree/master/maya-math) | Mathematical compiler: Lift → Operate → Collapse |
+| **Skeletal Singleton Tree (SST)** | Functional L-system separating state from mutation |
+| **Neural Sketch Field** | FNO-based surface anticipation from boundary curves |
+| **Curvature-Aware Octree** | Riemannian metric hierarchy for spectral subdivision |
 
 ---
 
-### Listen to My Framework
+### Spectral Octree & Manifold Navigation
 
-[**Executive Summary Audio (5 min)**](https://github.com/JohnnyNeoman/Math/raw/master/maya-math/media/executive_summary_narration.mp3) — A narrated overview of the Geometric Synthesis Framework
+Extending classical octree indexing into **learned Riemannian manifolds**:
+
+```
+Level 0: Euclidean       ‖x − y‖₂
+Level 1: Mahalanobis     (x−y)ᵀΣ⁻¹(x−y)
+Level 2: Riemannian      Geodesic distance with g(x)
+Level 3: Fisher-Rao      Information geometry on shape distributions
+Level 4: Learned         d_L(x,y) = ‖Φ_θ(x) − Φ_θ(y)‖_{g(θ)}
+```
+
+Subdivision follows **spectral energy density** E = Σ αᵢ²λᵢ — refining where geometry is rich, staying coarse where smooth.
 
 ---
 
-### Core Philosophy
+### Listen to the Framework
 
-> *"Shift from coordinates to mathematical compilation"*
-
-Traditional 3D pipelines destroy structure at every step. I build systems that preserve it.
-
-```
-┌─────────────────────────────────────────────────────┐
-│  Affine    ×   Conformal   ×   Spectral            │
-│  GL(4,ℝ)       PSL(2,ℂ)        L²(ℝ³)              │
-│                                                     │
-│  Position      Angles          Fields               │
-│  Rotation      Circles         Fourier              │
-│  Scale         Möbius          FNO                  │
-└─────────────────────────────────────────────────────┘
-          = Resolution Independence
-```
+[**Executive Summary Audio (5 min)**](https://github.com/JohnnyNeoman/Math/raw/master/maya-math/media/executive_summary_narration.mp3)
 
 ---
 
 ### Technical Stack
 
-**3D & Graphics:** Maya, Blender, Unreal Engine 5, MEL, Python
-**Mathematics:** Linear algebra, spectral geometry, conformal maps
-**Machine Learning:** Neural operators, geometric deep learning
+**Geometry:** Computational geometry, conformal maps, spectral methods, Frenet-Serret frames
+
+**3D Platforms:** Maya (MEL/Python), Blender, Unreal Engine 5
+
+**Mathematics:** Linear algebra, differential geometry, Riemannian manifolds, L-systems
+
+**ML Integration:** Fourier Neural Operators, geometric deep learning, spectral regularization
 
 ---
 
-### Featured Repository
+### The Legacy: 2,308 MEL Procedures
 
-[![Math Repository](https://img.shields.io/badge/Math-Geometry%20%26%20Algebra-blue?style=for-the-badge&logo=github)](https://github.com/JohnnyNeoman/Math)
+Analyzed and organized:
+- **Circle/tangent geometry** — 234 procedures (conformal PSL(2,ℂ))
+- **Linear algebra** — 240 procedures (affine GL(4,ℝ))
+- **Camera projection** — 218 procedures (sketch-to-3D mapping)
+- **Array batch processing** — 565 procedures (data infrastructure)
 
-Explore 2,308 MEL procedures, mathematical documentation, and the Tri-Space Engine architecture.
+[**Explore the Math Repository →**](https://github.com/JohnnyNeoman/Math)
 
 ---
 
-*"The specification IS the execution."*
+> *"The octree isn't just a spatial index—it's a discretization of a distance function.*
+> *Every node boundary is a level set. Swap the metric kernel, and behavior changes accordingly."*
